@@ -84,50 +84,50 @@ const p1 = {
   
 
 
-async function pruebas(){
+// async function pruebas(){
 
-    const prods = new Contenedor('./productos.txt') 
+//     const prods = new Contenedor('./productos.txt') 
                                                        
-    console.log('muestro todo')
-    let objs = await prods.getAll();                
-    console.log(objs);
+//     console.log('muestro todo')
+//     let objs = await prods.getAll();                
+//     console.log(objs);
   
-    console.log('guardo p1')
-    let idP1 = await prods.save(p1);                
-    console.log('id de p1: ', idP1);
+//     console.log('guardo p1')
+//     let idP1 = await prods.save(p1);                
+//     console.log('id de p1: ', idP1);
   
-    console.log('guardo p2')
-    let idP2 = await prods.save(p2);
-    console.log('id de p2: ', idP2);
+//     console.log('guardo p2')
+//     let idP2 = await prods.save(p2);
+//     console.log('id de p2: ', idP2);
   
-    console.log('muestro todo')
-    objs = await prods.getAll();                   
-    console.log(objs);  
+//     console.log('muestro todo')
+//     objs = await prods.getAll();                   
+//     console.log(objs);  
   
-    console.log('busco p1 por id')
-    const res = await prods.getById(idP1);
-    console.log('resultado: ', res)
+//     console.log('busco p1 por id')
+//     const res = await prods.getById(idP1);
+//     console.log('resultado: ', res)
   
-    console.log('busco por id inexistente')
-    const noexiste = await prods.getById(999);
-    console.log('resultado: ', noexiste)
+//     console.log('busco por id inexistente')
+//     const noexiste = await prods.getById(999);
+//     console.log('resultado: ', noexiste)
   
-    console.log('borro p1 por id')
-    await prods.deleteById(idP1);
+//     console.log('borro p1 por id')
+//     await prods.deleteById(idP1);
   
-    console.log('muestro todo')
-    objs = await prods.getAll();
-    console.log(objs);
+//     console.log('muestro todo')
+//     objs = await prods.getAll();
+//     console.log(objs);
   
-    // console.log('borro todo')
-    // await prods.deleteAll();
+//     // console.log('borro todo')
+//     // await prods.deleteAll();
   
-    // console.log('muestro todo')
-    // objs = await prods.getAll();
-    // console.log(objs);
+//     // console.log('muestro todo')
+//     // objs = await prods.getAll();
+//     // console.log(objs);
 
-}
+// }
 
-pruebas()
+// pruebas()
 
-module.exports = Contenedor
+module.exports = Contenedor;

@@ -1,29 +1,22 @@
 const express = require('express');
 const app = express();
+let cors = require("cors");
+const path = require("path");
 const PORT = 8080
-const Contenedor = require('./entregable2.js');
-const productos = new Contenedor('./productos.txt');
 
-  app.get("/", (req, res)=>{
-    res.send("Mi primer servidor con express");
-})
-
-app.get('/productos', async (req, res) => {
-    const prods = await productos.getAll()
-res.send(prods)
-})
+app.use(cors('*'));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use('/', express.static(path.join(__dirname,"views")));
 
 
-app.get('/productosRandom',(req, res)=>{
-    res.send()
-});
+app.use('/api/productos', require('./routes/index'));
 
+
+
+
+    app.listen(PORT, ()=>{
+        console.log(`Estamos conectados a la URL http://localhost:${PORT}`)
+    });
     
-app.listen(PORT, ()=>{
-    console.log(`Estamos conectados a la URL http://localhost:${PORT}`)
-});
-
-app.on("error",err =>console.log(`Fallo nuestra coneccion al servidor`,err));
-
-
-
+    app.on("error",err =>console.log(`Fallo nuestra coneccion al servidor`,err))
